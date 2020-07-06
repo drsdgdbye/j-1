@@ -4,7 +4,14 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class PuzzleNumberGame {
+    private PuzzleNumberGame(){ }
+    
+    public static void main(String[] args) {
+        PuzzleNumberGame.begin();
+    }
+
    private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
+   private static final Random random = new Random();
 
     public static void begin() {
         int puzzled = getRandom();
@@ -57,6 +64,6 @@ public class PuzzleNumberGame {
     }
 
     private static int getRandom() {
-        return new Random().nextInt(10);
+        return random.nextInt(10);
     }
 }

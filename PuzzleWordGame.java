@@ -4,12 +4,17 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class PuzzleWordGame {
+	public static void main(String[] args) {
+		PuzzleWordGame.begin();
+	}
+	
     private PuzzleWordGame() { }
     private static final String[] WORDS = {"apple", "apricot", "avocado", "banana", "broccoli", "carrot", "cherry",
             "garlic", "grape", "kiwi", "leak", "lemon", "mango", "melon", "mushroom", "nut", "olive", "orange", "pea",
             "peanut", "pear", "pepper", "pineapple", "potato", "pumpkin"};
+    private static final Random random = new Random();
     private static String getRandomWord() {
-        return WORDS[new Random().nextInt(WORDS.length)];
+        return WORDS[random.nextInt(WORDS.length)];
     }
 
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
