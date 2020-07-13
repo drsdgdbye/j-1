@@ -1,20 +1,15 @@
-import java.util.Arrays;
-import java.util.Random;
-
 public class Main {
     public static void main(String[] args) {
-        Employee[] employees = new Employee[5];
-        for (int i = 0; i < 5; i++) {
-            employees[i] = new Employee("Vasya" + i,
-                    "manager" + i,
-                    "vasya" + i + "@" + "mail.ru",
-                    "+0123456789" + i,
-                    Integer.parseInt("1" + new Random().nextInt(10 * i + 1) + "000"),
-                    20 * i);
-        }
+        Animal cat = new Cat();
+        Animal dog = new Dog();
 
-        Arrays.stream(employees)
-                .filter(employee -> employee.getAge() > 40)
-                .forEach(Employee::printInfo);
+        cat.swim(10);
+        dog.swim(10);
+
+        cat.jump(10);
+        dog.jump(1);
+
+        cat.run(100);
+        dog.run(600);
     }
 }
