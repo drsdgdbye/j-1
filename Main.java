@@ -1,15 +1,16 @@
+import java.util.stream.Stream;
+import java.util.Random;
+
 public class Main {
     public static void main(String[] args) {
-        Animal cat = new Cat();
-        Animal dog = new Dog();
+        Plate fromPlate = new Plate(100);
+        Cat[] cats = new Cat[10];
 
-        cat.swim(10);
-        dog.swim(11);
+        Random random = new Random();
+        for (int i = 0; i < cats.length; i++) {
+            cats[i] = new Cat("cat" + i, random.nextInt(i + 1) * 10);
+        }
 
-        cat.jump(1.2f);
-        dog.jump(0.75f);
-
-        cat.run(120);
-        dog.run(550);
+        Stream.of(cats).forEach(cat -> {cat.eat(fromPlate); cat.info();});
     }
 }

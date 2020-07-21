@@ -1,11 +1,27 @@
-import java.util.Random;
+public class Cat {
+    private final String name;
+    private final int appetite;
+    private boolean fullness;
 
-public class Cat extends Animal {
-    public Cat() {
-        MIN_JUMP = 1;
-        MIN_RUN = 200;
-        MAX_JUMP = MIN_JUMP + RANDOM.nextFloat() * (2 - MIN_JUMP);
-        MAX_RUN = MIN_RUN + RANDOM.nextInt() * (300 - MIN_RUN);
-        MAX_SWIM = 0;
+    public Cat(String name, int appetite) {
+        this.name = name;
+        this.appetite = appetite;
+    }
+
+    public void eat(Plate plate) {
+        if (plate.getFood() >= appetite) {
+            plate.decreaseFood(appetite);
+            fullness = true;
+        }
+    }
+
+    public void info() {
+        System.out.println(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "name: " + name + "\n" +
+                "fullness: " + fullness;
     }
 }
